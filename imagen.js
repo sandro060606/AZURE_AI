@@ -1,12 +1,14 @@
 //Deteccion de imagenes
-const suscriptionKey = "3Ywfn0rbUSJrqhnDkr1eYr6Lv56QZc9wxpQBUZEJVOu93MHq5jmeJQQJ99CEACYeBjFXJ3w3AAAFACOGDoAS";
+const suscriptionKey =
+  "3Ywfn0rbUSJrqhnDkr1eYr6Lv56QZc9wxpQBUZEJVOu93MHq5jmeJQQJ99CEACYeBjFXJ3w3AAAFACOGDoAS";
 const endpoint = "https://CV1555585.cognitiveservices.azure.com/";
 
 //URL describe las funcionalidades que deseamos aprovechar
 const url = `${endpoint}vision/v3.2/analyze?visualFeatures=Categories,Description,Color`;
 
 // Imagen a analizar
-const imageUrl = "https://images.pexels.com/videos/7655554/pexels-photo-7655554.jpeg";
+const imageUrl =
+  "https://get.pxhere.com/photo/hand-man-person-suit-people-white-male-guy-hollywood-standing-portrait-young-finger-food-corporate-tie-human-gesture-professional-business-banana-arm-formal-help-eyes-danger-gun-funny-expression-angry-boss-body-handsome-intense-leader-attractive-adult-businessman-executive-success-smart-cartoon-silly-grin-tough-confident-gesturing-successful-business-man-movie-star-spoof-businessperson-894428.jpg";
 
 //Esta funcionalidad requiere ejecutarse como promesa
 async function analizarImagen() {
@@ -17,7 +19,7 @@ async function analizarImagen() {
         "Ocp-Apim-Subscription-Key": suscriptionKey,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ url: imageUrl })
+      body: JSON.stringify({ url: imageUrl }),
     });
 
     // Manejo de errores
