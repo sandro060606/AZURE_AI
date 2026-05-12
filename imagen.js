@@ -1,6 +1,6 @@
 //Deteccion de imagenes
 const suscriptionKey =
-  "3Ywfn0rbUSJrqhnDkr1eYr6Lv56QZc9wxpQBUZEJVOu93MHq5jmeJQQJ99CEACYeBjFXJ3w3AAAFACOGDoAS";
+  "";
 const endpoint = "https://CV1555585.cognitiveservices.azure.com/";
 
 //URL describe las funcionalidades que deseamos aprovechar
