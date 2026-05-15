@@ -1,7 +1,7 @@
 //Deteccion de texto en imagen - OCR
 const suscriptionKey =
-  "";
-const endpoint = "https://CV1555585.cognitiveservices.azure.com/";
+  "3Ywfn0rbUSJrqhnDkr1eYr6Lv56QZc9wxpQBUZEJVOu93MHq5jmeJQQJ99CEACYeBjFXJ3w3AAAFACOGDoAS";
+const endpoint = "https://cv1555585.cognitiveservices.azure.com/";
 
 const url = `${endpoint}/vision/v3.2/read/analyze`;
 const imageURL = `https://image.slidesharecdn.com/eleditorialperiodstico-110615172743-phpapp01/85/El-editorial-periodistico-3-320.jpg`;

@@ -1,7 +1,7 @@
 //Deteccion de imagenes
 const suscriptionKey =
-  "";
-const endpoint = "https://CV1555585.cognitiveservices.azure.com/";
+  "3Ywfn0rbUSJrqhnDkr1eYr6Lv56QZc9wxpQBUZEJVOu93MHq5jmeJQQJ99CEACYeBjFXJ3w3AAAFACOGDoAS";
+const endpoint = "https://cv1555585.cognitiveservices.azure.com/";
 
 //URL describe las funcionalidades que deseamos aprovechar
 const url = `${endpoint}vision/v3.2/analyze?visualFeatures=Categories,Description,Color`;
@@ -30,9 +30,10 @@ async function analizarImagen() {
 
     // Resultado Favorable
     const data = await response.json();
+    const confianza = (data.description.captions[0].confidence * 100).toFixed(2);
 
     console.log("Descripcion de la Imagen:", data.description.captions[0].text);
-    console.log("Confianza", data.description.captions[0].confidence);
+    console.log("Confianza", `${confianza} %`);
     console.log("Etiquetas:" + data.description.tags.join(", "));
     // console.log(data.description);
   } catch (error) {
