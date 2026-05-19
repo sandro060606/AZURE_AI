@@ -1,10 +1,10 @@
 //Deteccion de imagenes
 const suscriptionKey =
   "3Ywfn0rbUSJrqhnDkr1eYr6Lv56QZc9wxpQBUZEJVOu93MHq5jmeJQQJ99CEACYeBjFXJ3w3AAAFACOGDoAS";
-const endpoint = "https://cv1555585.cognitiveservices.azure.com/";
+const endpoint = "https://cv1555585.cognitiveservices.azure.com";
 
 //URL describe las funcionalidades que deseamos aprovechar
-const url = `${endpoint}vision/v3.2/analyze?visualFeatures=Categories,Description,Color`;
+const url = `${endpoint}/vision/v3.2/analyze?visualFeatures=Categories,Description,Color`;
 
 // Imagen a analizar
 const imageUrl =

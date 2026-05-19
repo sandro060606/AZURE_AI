@@ -56,15 +56,14 @@ async function extraerDatos() {
 
     //La empresa para la que desarrolla, solo quiere obtener las fechas de esta conversacion
     primerDocumento.entities.forEach((documento) => {
-        //Instruccion permite visualizar todos los datos encontrados
-        //console.log(documento)
+      //Instruccion permite visualizar todos los datos encontrados
+      //console.log(documento)
 
-        //Visualizamos solo los datos clave que sean Fecha y Hora
-        if(documento.category === 'DateTime'){
-            console.log(documento)
-        }
+      //Visualizamos solo los datos clave que sean Fecha y Hora
+      if (documento.category === "DateTime") {
+        console.log(documento);
+      }
     });
-
 
   } catch (error) {
     console.error(error.message);
