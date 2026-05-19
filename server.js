@@ -13,8 +13,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Ruta para la interfaz de extracción en el Frontend
-app.get('/extraccion', (req, res) => {
+// Ruta Frontend
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/extraccion.html'))
 })
 

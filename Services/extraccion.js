@@ -39,7 +39,7 @@ exports.extraerDatos = async (texto) => {
       return {
         text: entidad.text,
         category: entidad.category,
-        confidenceScore: entidad.confidenceScore,
+        confidenceScore: (entidad.confidenceScore * 100).toFixed(2),
       };
     });
   } catch (error) {

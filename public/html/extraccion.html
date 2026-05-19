@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracción de Texto</title>
+</head>
+<body>
+    <h1>Extracción de Texto</h1>
+
+    <div>
+        <label for="texto">Dato de entrada:</label><br>
+        <textarea id="texto" rows="6" placeholder="Escribe el texto aquí..."></textarea>
+    </div>
+
+    <br>
+
+    <div>
+        <button id="btnAnalizar">Analizar</button>
+    </div>
+
+    <div>
+        <h3>Filtrar Categorías</h3>
+        <label><input type="checkbox" class="filtro-categoria" value="Person"> Person</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Location"> Location</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Organization"> Organization</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Quantity"> Quantity</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="DateTime"> DateTime</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="URL"> URL</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Email"> Email</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="personType"> personType</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Event"> Event</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Product"> Product</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Skill"> Skill</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="Address"> Address</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="phoneNumber"> phoneNumber</label><br>
+        <label><input type="checkbox" class="filtro-categoria" value="ipAddress"> ipAddress</label><br>
+    </div>
+
+    <div>
+        <h3>Resultados</h3>
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Texto</th>
+                    <th>Categoría</th>
+                    <th>% Confianza</th>
+                </tr>
+            </thead>
+            <tbody id="resultadosTabla">
+                <tr>
+                    <td colspan="3" style="text-align: center;">No hay datos para mostrar</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../js/extraccion.js"></script>
+</body>
+</html>
