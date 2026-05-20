@@ -6,6 +6,7 @@ const path = require('path')
 const sentimientoRoutes = require('./routes/sentimientoRoutes')
 const ocrRoutes = require('./routes/ocrRoutes')
 const extraccionRoutes = require('./Routes/extraccionRoutes')
+const imagenRoutes = require('./Routes/imagenRoutes')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -35,6 +36,7 @@ app.get('/extraccion', (req, res) => {
 app.use('/api/sentimiento', sentimientoRoutes)
 app.use('/api/ocr', ocrRoutes)
 app.use('/api/extraccion', extraccionRoutes)
+app.use('/api/imagen', imagenRoutes)
 
 app.listen(PORT, () => {
     console.log(`Servidor en http://localhost:${PORT}`)
