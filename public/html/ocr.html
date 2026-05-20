@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure - Lectura de Imágenes (OCR)</title>
+    <link rel="stylesheet" href="../CSS/ocr.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="/" class="back-link">← Volver al inicio</a>
+        <h1>Lectura de Imágenes (OCR)</h1>
+        <p>Extrae texto de Imágenes con Azure</p>
+      </header>
+
+      <main>
+        <!-- Formulario -->
+        <div class="form-section">
+          <label for="imageUrl">URL de la Imagen:</label>
+          <div class="input-group">
+            <input type="text" id="imageUrl" />
+            <button id="btnVistaPrevia">Ver Imagen</button>
+          </div>
+          <!-- Vista Previa de la Imagen -->
+          <div
+            id="previewContainer"
+            class="preview-container"
+            style="display: none"
+          >
+            <h3>Vista previa:</h3>
+            <img id="imgPreview" src="" alt="Vista previa de la imagen" />
+          </div>
+
+          <button id="btnAnalizar" class="btn-main">Analizar Imagen</button>
+        </div>
+        <!-- Resultados -->
+        <div id="resultado" class="resultado" style="display: none">
+          <h2>Texto Extraído</h2>
+
+          <div class="ocr-card">
+            <div id="textoDetectado" class="texto-detectado">
+              <!-- Aquí se insertarán las líneas de texto -->
+            </div>
+          </div>
+
+          <div class="stats-container">
+            <div class="stat-item">
+              <span>Total de líneas detectadas:</span>
+              <span id="totalLineas" class="valor"></span>
+            </div>
+          </div>
+        </div>
+        <!-- Cargando -->
+        <div id="loading" class="loading" style="display: none;">
+          <div class="spinner"></div>
+          <p>Procesando imagen con Azure AI...</p>
+        </div>
+        <!-- Error -->
+        <div id="error" class="error" style="display: none">
+          <p><span id="errorMensaje"></span></p>
+        </div>
+      </main>
+    </div>
+
+    <script src="../JS/ocr.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Análisis de Sentimientos</title>
+    <link rel="stylesheet" href="../CSS/sentimiento.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Volver al inicio</a>
+            <h1>Análisis de Sentimientos con Azure</h1>
+            <p>Descubre si tu texto es positivo, negativo o neutral</p>
+        </header>
+
+        <main>
+            <!-- Formulario -->
+            <div class="form-section">
+                <label for="texto">Escribe tu texto:</label>
+                <textarea 
+                    id="texto" 
+                    rows="5" 
+                    placeholder="Ejemplo: Estoy muy feliz con este resultado..."
+                ></textarea>
+                <button id="btnAnalizar">Analizar Sentimiento</button>
+            </div>
+            <!-- Resultados -->
+            <div id="resultado" class="resultado" style="display: none;">
+                <h2>Resultado del Análisis</h2>
+                
+                <div class="sentimiento-card">
+                    <h3>Sentimiento Detectado:</h3>
+                    <p id="sentimiento" class="sentimiento"></p>
+                </div>
+
+                <div class="confianza-container">
+                    <h3>Niveles de Confianza:</h3>
+                    
+                    <div class="confianza-item positivo">
+                        <span>Positivo:</span>
+                        <span id="positivo" class="valor"></span>
+                    </div>
+
+                    <div class="confianza-item negativo">
+                        <span>Negativo:</span>
+                        <span id="negativo" class="valor"></span>
+                    </div>
+
+                    <div class="confianza-item neutral">
+                        <span>Neutral:</span>
+                        <span id="neutral" class="valor"></span>
+                    </div>
+                </div>
+
+                <div class="texto-analizado">
+                    <h4>Texto analizado:</h4>
+                    <p id="textoOriginal"></p>
+                </div>
+            </div>
+            <!-- Cargando -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analizando texto con Azure AI...</p>
+            </div>
+            <!-- Error -->
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../JS/sentimiento.js"></script>
+</body>
+</html>

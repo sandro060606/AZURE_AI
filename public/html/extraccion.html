@@ -3,56 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extracción de Texto</title>
+    <title>Azure - Extracción de Información (NER)</title>
+    <link rel="stylesheet" href="../css/extraccion.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Extracción de Texto</h1>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Volver al inicio</a>
+            <h1>Extracción de Información con Azure</h1>
+            <p>Identifica y clasifica de forma automática entidades clave (personas, organizaciones, fechas, etc.) usando Azure NER.</p>
+        </header>
 
-    <div>
-        <label for="texto">Dato de entrada:</label><br>
-        <textarea id="texto" rows="6" placeholder="Escribe el texto aquí..."></textarea>
-    </div>
+        <main>
+            <!-- Formulario -->
+            <div class="form-section">
+                <label for="texto">Escribe o pega tu texto:</label>
+                <textarea 
+                    id="texto" 
+                    rows="6" 
+                    placeholder="Ejemplo: Miguel de Cervantes nació en Alcalá de Henares en 1547. Fue el autor de 'Don Quijote de la Mancha', publicado por la editorial Juan de la Cuesta en Madrid..."
+                ></textarea>
+                <button id="btnAnalizar" class="btn-main">Analizar Texto</button>
+            </div>
 
-    <br>
+            <!-- Filtros de Categoría -->
+            <div class="filters-container">
+                <h3>Filtrar Categorías</h3>
+                <div class="filter-chips">
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Person">
+                        <span>Persona</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Location">
+                        <span>Ubicación</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Organization">
+                        <span>Organización</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Quantity">
+                        <span>Cantidad</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="DateTime">
+                        <span>Fecha/Hora</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="URL">
+                        <span>Enlace URL</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Email">
+                        <span>Correo</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="personType">
+                        <span>Cargo/Rol</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Event">
+                        <span>Evento</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Product">
+                        <span>Producto</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Skill">
+                        <span>Habilidad</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="Address">
+                        <span>Dirección</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="phoneNumber">
+                        <span>Teléfono</span>
+                    </label>
+                    <label class="chip">
+                        <input type="checkbox" class="filtro-categoria" value="ipAddress">
+                        <span>IP</span>
+                    </label>
+                </div>
+            </div>
 
-    <div>
-        <button id="btnAnalizar">Analizar</button>
-    </div>
+            <!-- Cargando -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analizando texto con Azure...</p>
+            </div>
 
-    <div>
-        <h3>Filtrar Categorías</h3>
-        <label><input type="checkbox" class="filtro-categoria" value="Person"> Person</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Location"> Location</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Organization"> Organization</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Quantity"> Quantity</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="DateTime"> DateTime</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="URL"> URL</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Email"> Email</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="personType"> personType</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Event"> Event</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Product"> Product</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Skill"> Skill</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="Address"> Address</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="phoneNumber"> phoneNumber</label><br>
-        <label><input type="checkbox" class="filtro-categoria" value="ipAddress"> ipAddress</label><br>
-    </div>
+            <!-- Error -->
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
 
-    <div>
-        <h3>Resultados</h3>
-        <table border="1" cellpadding="10">
-            <thead>
-                <tr>
-                    <th>Texto</th>
-                    <th>Categoría</th>
-                    <th>% Confianza</th>
-                </tr>
-            </thead>
-            <tbody id="resultadosTabla">
-                <tr>
-                    <td colspan="3" style="text-align: center;">No hay datos para mostrar</td>
-                </tr>
-            </tbody>
-        </table>
+            <!-- Resultados -->
+            <div id="resultado" class="resultado" style="display: none;">
+                <h2>Entidades Detectadas</h2>
+                <div class="table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Texto Detectado</th>
+                                <th>Categoría</th>
+                                <th>% Confianza</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultadosTabla">
+                            <tr>
+                                <td colspan="3" class="no-data">No hay datos para mostrar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
     </div>
 
     <script src="../js/extraccion.js"></script>
