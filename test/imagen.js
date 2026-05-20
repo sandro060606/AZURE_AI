@@ -8,7 +8,7 @@ const url = `${endpoint}/vision/v3.2/analyze?visualFeatures=Categories,Descripti
 
 // Imagen a analizar
 const imageUrl =
-  "https://get.pxhere.com/photo/hand-man-person-suit-people-white-male-guy-hollywood-standing-portrait-young-finger-food-corporate-tie-human-gesture-professional-business-banana-arm-formal-help-eyes-danger-gun-funny-expression-angry-boss-body-handsome-intense-leader-attractive-adult-businessman-executive-success-smart-cartoon-silly-grin-tough-confident-gesturing-successful-business-man-movie-star-spoof-businessperson-894428.jpg";
+  "https://static.vecteezy.com/system/resources/previews/008/026/165/non_2x/dog-playing-with-toy-in-the-park-dog-in-grass-field-photo.jpg";
 
 //Esta funcionalidad requiere ejecutarse como promesa
 async function analizarImagen() {
@@ -31,6 +31,7 @@ async function analizarImagen() {
     // Resultado Favorable
     const data = await response.json();
     const confianza = (data.description.captions[0].confidence * 100).toFixed(2);
+    console.log(data)
 
     console.log("Descripcion de la Imagen:", data.description.captions[0].text);
     console.log("Confianza", `${confianza} %`);

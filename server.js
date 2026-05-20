@@ -24,12 +24,14 @@ app.get('/', (req, res) => {
 app.get('/sentimientos', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/sentimiento.html'))
 })
-
 app.get('/ocr', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/ocr.html'))
 })
 app.get('/extraccion', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/extraccion.html'))
+})
+app.get('/imagen', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html/imagen.html'))
 })
 
 // Ruta API
