@@ -48,8 +48,8 @@ btnAnalizar.addEventListener('click', async () => {
             mostrarError(result.error || 'Error en la extracción de datos.');
         }
 
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
+        console.error(error);
         mostrarError('Error al conectar con el servidor.');
     } finally {
         btnAnalizar.disabled = false;
@@ -106,39 +106,18 @@ function renderizar() {
 
     // Dibujar las filas en la tabla
     resultadosTabla.innerHTML = entidadesFiltradas.map(entidad => {
-        // Formatear porcentaje confidenceScore a número y poner badge con colores según confianza
-        const score = parseFloat(entidad.confidenceScore) || 0;
         let badgeClass = 'badge-low';
-        if (score >= 80) {
+        if (entidad.confidenceScore >= 80) {
             badgeClass = 'badge-high';
-        } else if (score >= 50) {
+        } else if (entidad.confidenceScore >= 50) {
             badgeClass = 'badge-medium';
         }
-
-        // Traducir o formatear categorías para que se vean más bonitas
-        const catMap = {
-            'Person': 'Persona',
-            'Location': 'Ubicación',
-            'Organization': 'Organización',
-            'Quantity': 'Cantidad',
-            'DateTime': 'Fecha/Hora',
-            'URL': 'Enlace URL',
-            'Email': 'Correo',
-            'personType': 'Cargo/Rol',
-            'Event': 'Evento',
-            'Product': 'Producto',
-            'Skill': 'Habilidad',
-            'Address': 'Dirección',
-            'phoneNumber': 'Teléfono',
-            'ipAddress': 'IP'
-        };
-        const prettyCategory = catMap[entidad.category] || entidad.category;
 
         return `
             <tr>
                 <td class="text-entity"><strong>${entidad.text}</strong></td>
-                <td class="category-entity"><span class="cat-tag">${prettyCategory}</span></td>
-                <td class="score-entity"><span class="score-badge ${badgeClass}">${score}%</span></td>
+                <td class="category-entity"><span class="cat-tag">${entidad.category}</span></td>
+                <td class="score-entity"><span class="score-badge ${badgeClass}">${entidad.confidenceScore}%</span></td>
             </tr>
         `;
     }).join('');

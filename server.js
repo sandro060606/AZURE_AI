@@ -3,8 +3,8 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 
-const sentimientoRoutes = require('./routes/sentimientoRoutes')
-const ocrRoutes = require('./routes/ocrRoutes')
+const sentimientoRoutes = require('./Routes/sentimientoRoutes')
+const ocrRoutes = require('./Routes/ocrRoutes')
 const extraccionRoutes = require('./Routes/extraccionRoutes')
 const imagenRoutes = require('./Routes/imagenRoutes')
 
@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Ruta Frontend
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'html/index.html')) 
+    res.sendFile(path.join(__dirname, 'public', 'html/index.html'))
 })
 
 app.get('/sentimientos', (req, res) => {

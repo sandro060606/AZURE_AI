@@ -28,7 +28,6 @@ exports.extraerDatos = async (texto) => {
     const data = await response.json();
 
     if (data.errors > 0) {
-      console.log(data.errors);
       return [];
     }
 
@@ -39,7 +38,7 @@ exports.extraerDatos = async (texto) => {
       return {
         text: entidad.text,
         category: entidad.category,
-        confidenceScore: (entidad.confidenceScore * 100).toFixed(2),
+        confidenceScore: (entidad.confidenceScore * 100).toFixed(0),
       };
     });
   } catch (error) {

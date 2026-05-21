@@ -39,7 +39,7 @@ header {
     background: #f0edff;
     border-radius: 10px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
 }
@@ -47,7 +47,7 @@ header {
 .back-link:hover {
     background: #e5e0ff;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     color: #667eea;
 }
 
@@ -175,7 +175,7 @@ textarea:focus {
     user-select: none;
 }
 
-.chip input[type="checkbox"]:checked + span {
+.chip input[type="checkbox"]:checked+span {
     background: #764ba2;
     border-color: #764ba2;
     color: white;
@@ -188,7 +188,7 @@ textarea:focus {
     background: #f7fafc;
 }
 
-.chip input[type="checkbox"]:checked:hover + span {
+.chip input[type="checkbox"]:checked:hover+span {
     background: #667eea;
     border-color: #667eea;
 }
@@ -212,7 +212,7 @@ textarea:focus {
     border-radius: 12px;
     border: 1px solid #eef2f3;
     background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
 }
 
 .results-table {
@@ -306,8 +306,13 @@ textarea:focus {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Error */

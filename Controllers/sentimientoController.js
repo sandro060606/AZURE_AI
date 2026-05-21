@@ -1,4 +1,4 @@
-const sentimiento = require("../services/sentimiento");
+const sentimiento = require("../Services/sentimiento");
 
 const analizarTexto = async (req, res) => {
   try {

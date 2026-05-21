@@ -43,7 +43,7 @@ btnAnalizar.addEventListener('click', async () => {
 function mostrarResultado(data) {
     // Mostrar sentimiento
     const sentimientoElement = document.getElementById('sentimiento')
-    sentimientoElement.textContent = traducirSentimiento(data.sentimiento)
+    sentimientoElement.textContent = data.sentimiento
     sentimientoElement.className = `sentimiento ${data.sentimiento}`
 
     // Mostrar confianza
@@ -66,13 +66,4 @@ function ocultarTodo() {
     resultado.style.display = 'none'
     error.style.display = 'none'
     if (loading) loading.style.display = 'none'
-}
-
-function traducirSentimiento(sentimiento) {
-    const traducciones = {
-        'positive': 'POSITIVO',
-        'negative': 'NEGATIVO',
-        'neutral': 'NEUTRAL'
-    }
-    return traducciones[sentimiento] || sentimiento
 }
