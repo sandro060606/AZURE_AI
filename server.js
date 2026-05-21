@@ -7,6 +7,7 @@ const sentimientoRoutes = require('./Routes/sentimientoRoutes')
 const ocrRoutes = require('./Routes/ocrRoutes')
 const extraccionRoutes = require('./Routes/extraccionRoutes')
 const imagenRoutes = require('./Routes/imagenRoutes')
+const resumenRoutes = require('./Routes/resumenRoutes')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -33,12 +34,16 @@ app.get('/extraccion', (req, res) => {
 app.get('/imagen', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/imagen.html'))
 })
+app.get('/resumen', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html/resumen.html'))
+})
 
 // Ruta API
 app.use('/api/sentimiento', sentimientoRoutes)
 app.use('/api/ocr', ocrRoutes)
 app.use('/api/extraccion', extraccionRoutes)
 app.use('/api/imagen', imagenRoutes)
+app.use('/api/resumen', resumenRoutes)
 
 app.listen(PORT, () => {
     console.log(`Servidor en http://localhost:${PORT}`)
