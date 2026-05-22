@@ -1,6 +1,6 @@
 exports.resumirTexto = async (texto, numOraciones = 2) => {
     try {
-        const URL = `${process.env.AZURE_L_ENDPOINT}/language/analyze-text/jobs?api-version=2023-04-01`;
+        const URL = `${process.env.AZURE_F_ENDPOINT}/language/analyze-text/jobs?api-version=2023-04-01`;
 
         const cuerpoPeticion = {
             displayName: "Resumen de Texto",
@@ -25,7 +25,7 @@ exports.resumirTexto = async (texto, numOraciones = 2) => {
         const response = await fetch(URL, {
             method: "POST",
             headers: {
-                "Ocp-Apim-Subscription-Key": process.env.AZURE_L_KEY,
+                "Ocp-Apim-Subscription-Key": process.env.AZURE_F_KEY,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(cuerpoPeticion),
@@ -42,7 +42,7 @@ exports.resumirTexto = async (texto, numOraciones = 2) => {
         let resultadoFinal = null;
         while (true) {
             const respuestaSeguimiento = await fetch(URLSEGUIMIENTO, {
-                headers: { "Ocp-Apim-Subscription-Key": process.env.AZURE_L_KEY },
+                headers: { "Ocp-Apim-Subscription-Key": process.env.AZURE_F_KEY },
             });
 
             resultadoFinal = await respuestaSeguimiento.json();

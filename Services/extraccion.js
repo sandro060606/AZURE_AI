@@ -1,6 +1,6 @@
 exports.extraerDatos = async (texto) => {
   try {
-    const URL = `${process.env.AZURE_L_ENDPOINT}/language/:analyze-text?api-version=2023-04-01`;
+    const URL = `${process.env.AZURE_F_ENDPOINT}/language/:analyze-text?api-version=2023-04-01`;
     //Paso 1 - Documento que se desea analizar
     const documentoProcesar = {
       kind: "EntityRecognition",
@@ -13,7 +13,7 @@ exports.extraerDatos = async (texto) => {
     const response = await fetch(URL, {
       method: "POST",
       headers: {
-        "Ocp-Apim-Subscription-Key": `${process.env.AZURE_L_KEY}`,
+        "Ocp-Apim-Subscription-Key": `${process.env.AZURE_F_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(documentoProcesar),

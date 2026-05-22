@@ -1,6 +1,6 @@
 exports.analizarSentimiento = async (texto) => {
   try {
-    const URL = `${process.env.AZURE_L_ENDPOINT}/language/:analyze-text?api-version=2023-04-01`;
+    const URL = `${process.env.AZURE_F_ENDPOINT}/language/:analyze-text?api-version=2023-04-01`;
 
     const documentosAnalizar = {
       kind: "SentimentAnalysis",
@@ -12,7 +12,7 @@ exports.analizarSentimiento = async (texto) => {
     const response = await fetch(URL, {
       method: "POST",
       headers: {
-        "Ocp-Apim-Subscription-Key": process.env.AZURE_L_KEY,
+        "Ocp-Apim-Subscription-Key": process.env.AZURE_F_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(documentosAnalizar),

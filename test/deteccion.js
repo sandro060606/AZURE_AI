@@ -27,18 +27,18 @@ async function detectarObjetos() {
     //Exito
     /* console.log(data); */
     const data = await response.json()
-    
-    data.objects.forEach(obj => {
-        const confianza = (obj.confidence * 100).toFixed(2)
-        console.log(`Objeto Identificado: ${obj.object} - Confianza: ${confianza}%`)
 
-        //Ubicacion - ¿En que parte de la imagen esta este objeto?
-        const rect = obj.rectangle
-        console.log(`Coordenadas del Rectangulo:`)
-        console.log(`   Inicio (Superior, Izquierdo): ${rect.x}, ${rect.y}`)
-        console.log(`   Dimensiones (px): ${rect.w} ancho, ${rect.h} alto`)
+    data.objects.forEach(obj => {
+      const confianza = (obj.confidence * 100).toFixed(2)
+      console.log(`Objeto Identificado: ${obj.object} - Confianza: ${confianza}%`)
+
+      //Ubicacion - ¿En que parte de la imagen esta este objeto?
+      const rect = obj.rectangle
+      console.log(`Coordenadas del Rectangulo:`)
+      console.log(`   Inicio (Superior, Izquierdo): ${rect.x}, ${rect.y}`)
+      console.log(`   Dimensiones (px): ${rect.w} ancho, ${rect.h} alto`)
     });
-    
+
   } catch (error) {
     console.error(`Error al analizar la imagen:", ${error.message}`);
   }
