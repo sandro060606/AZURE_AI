@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Resumen de Textos</title>
+    <link rel="stylesheet" href="../css/resumen.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Volver al inicio</a>
+            <h1>Resumen de Textos con Azure</h1>
+            <p>Extrae automáticamente las frases más relevantes de cualquier texto extenso usando Azure AI Language.</p>
+        </header>
+
+        <main>
+            <!-- Formulario -->
+            <div class="form-section">
+                <label for="texto">Pega o escribe tu texto:</label>
+                <textarea id="texto" rows="8"
+                    placeholder="Pega aquí un artículo, noticia, ensayo o cualquier texto extenso del que desees obtener un resumen..."></textarea>
+
+                <div class="options-row">
+                    <div class="option-group">
+                        <label for="numOraciones">Número de frases del resumen:</label>
+                        <div class="stepper">
+                            <input id="nroFrases" type="number" value="1" min="1">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btnResumen" class="btn-main">Resumir Texto</button>
+            </div>
+
+            <!-- Cargando -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Resumiendo texto con Azure AI...</p>
+                <span class="loading-sub">Esto puede tardar unos segundos</span>
+            </div>
+
+            <!-- Error -->
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
+
+            <!-- Resultados -->
+            <div id="resultado" class="resultado" style="display: none;">
+                <div class="resultado-header">
+                    <h2>Resumen Generado</h2>
+                </div>
+                <!-- Frases del resumen Renderizar -->
+                <div id="frasesResumen" class="frases-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/resumen.js"></script>
+</body>
+
+</html>

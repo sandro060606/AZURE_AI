@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure - Análisis de Sentimientos</title>
     <link rel="stylesheet" href="../CSS/sentimiento.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -18,17 +20,13 @@
             <!-- Formulario -->
             <div class="form-section">
                 <label for="texto">Escribe tu texto:</label>
-                <textarea 
-                    id="texto" 
-                    rows="5" 
-                    placeholder="Ejemplo: Estoy muy feliz con este resultado..."
-                ></textarea>
+                <textarea id="texto" rows="5" placeholder="Ejemplo: Estoy muy feliz con este resultado..."></textarea>
                 <button id="btnAnalizar">Analizar Sentimiento</button>
             </div>
             <!-- Resultados -->
             <div id="resultado" class="resultado" style="display: none;">
                 <h2>Resultado del Análisis</h2>
-                
+
                 <div class="sentimiento-card">
                     <h3>Sentimiento Detectado:</h3>
                     <p id="sentimiento" class="sentimiento"></p>
@@ -36,7 +34,7 @@
 
                 <div class="confianza-container">
                     <h3>Niveles de Confianza:</h3>
-                    
+
                     <div class="confianza-item positivo">
                         <span>Positivo:</span>
                         <span id="positivo" class="valor"></span>
@@ -72,4 +70,5 @@
 
     <script src="../JS/sentimiento.js"></script>
 </body>
+
 </html>

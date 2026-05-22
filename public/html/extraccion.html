@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,22 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
             <a href="/" class="back-link">← Volver al inicio</a>
             <h1>Extracción de Información con Azure</h1>
-            <p>Identifica y clasifica de forma automática entidades clave (personas, organizaciones, fechas, etc.) usando Azure NER.</p>
+            <p>Identifica y clasifica de forma automática entidades clave (personas, organizaciones, fechas, etc.)
+                usando Azure NER.</p>
         </header>
 
         <main>
             <!-- Formulario -->
             <div class="form-section">
                 <label for="texto">Escribe o pega tu texto:</label>
-                <textarea 
-                    id="texto" 
-                    rows="6" 
-                    placeholder="Ejemplo: Miguel de Cervantes nació en Alcalá de Henares en 1547. Fue el autor de 'Don Quijote de la Mancha', publicado por la editorial Juan de la Cuesta en Madrid..."
-                ></textarea>
+                <textarea id="texto" rows="6"
+                    placeholder="Ejemplo: Miguel de Cervantes nació en Alcalá de Henares en 1547. Fue el autor de 'Don Quijote de la Mancha', publicado por la editorial Juan de la Cuesta en Madrid..."></textarea>
                 <button id="btnAnalizar" class="btn-main">Analizar Texto</button>
             </div>
 
@@ -127,4 +127,5 @@
 
     <script src="../js/extraccion.js"></script>
 </body>
+
 </html>

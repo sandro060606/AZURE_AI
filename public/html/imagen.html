@@ -1,87 +1,85 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Azure - Análisis de Imágenes</title>
-    <link rel="stylesheet" href="../CSS/imagen.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <header>
-        <a href="/" class="back-link">← Volver al inicio</a>
-        <h1>Análisis de Imágenes</h1>
-        <p>Analiza imágenes con Azure Computer Vision</p>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure - Análisis de Imágenes</title>
+  <link rel="stylesheet" href="../CSS/imagen.css" />
+</head>
 
-      <main>
-        <div class="form-section">
-          <label for="imageUrl">URL de la Imagen:</label>
-          <div class="input-group">
-            <input type="text" id="imageUrl" />
-            <button id="btnVistaPrevia">Ver Imagen</button>
-          </div>
-          <!-- Vista Previa de la Imagen -->
-          <div
-            id="previewContainer"
-            class="preview-container"
-            style="display: none"
-          >
-            <img id="imgPreview" src="" />
-          </div>
-          <button id="btnAnalizar" class="btn-main">Analizar Imagen</button>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Volver al inicio</a>
+      <h1>Análisis de Imágenes</h1>
+      <p>Analiza imágenes con Azure Computer Vision</p>
+    </header>
+
+    <main>
+      <div class="form-section">
+        <label for="imageUrl">URL de la Imagen:</label>
+        <div class="input-group">
+          <input type="text" id="imageUrl" />
+          <button id="btnVistaPrevia">Ver Imagen</button>
         </div>
-        <!-- RESULTADOS -->
-        <div id="resultado" class="resultado" style="display: none">
-          <h2>Resultado del Análisis</h2>
-          <div class="imagen-card">
-            <!-- DESCRIPCION -->
-            <div class="card-section">
-              <h3>Descripción</h3>
-              <p id="descripcion" class="descripcion-texto"></p>
-            </div>
-            <!-- CONFIANZA -->
-            <div class="card-section">
-              <div class="confianza">
-                <span>Confianza:</span>
-                <span id="confianza" class="valor"></span>
-              </div>
-            </div>
-            <!-- ETIQUETAS -->
-            <div class="card-section">
-              <h3>Etiquetas</h3>
-              <div id="etiquetas" class="etiquetas-container">
-                <!-- Aquí se insertarán las etiquetas -->
-              </div>
-            </div>
-            <!-- CATEGORÍAS -->
-            <div class="card-section">
-              <h3>Categorías</h3>
-              <div id="categorias" class="categorias-container">
-                <!-- Aquí se insertarán las categorías -->
-              </div>
-            </div>
-            <!-- COLORES -->
-            <div class="card-section">
-              <h3>Colores Dominantes</h3>
-              <div id="colores" class="colores-container">
-                <!-- Aquí se insertarán los colores -->
-              </div>
+        <!-- Vista Previa de la Imagen -->
+        <div id="previewContainer" class="preview-container" style="display: none">
+          <img id="imgPreview" src="" />
+        </div>
+        <button id="btnAnalizar" class="btn-main">Analizar Imagen</button>
+      </div>
+      <!-- RESULTADOS -->
+      <div id="resultado" class="resultado" style="display: none">
+        <h2>Resultado del Análisis</h2>
+        <div class="imagen-card">
+          <!-- DESCRIPCION -->
+          <div class="card-section">
+            <h3>Descripción</h3>
+            <p id="descripcion" class="descripcion-texto"></p>
+          </div>
+          <!-- CONFIANZA -->
+          <div class="card-section">
+            <div class="confianza">
+              <span>Confianza:</span>
+              <span id="confianza" class="valor"></span>
             </div>
           </div>
+          <!-- ETIQUETAS -->
+          <div class="card-section">
+            <h3>Etiquetas</h3>
+            <div id="etiquetas" class="etiquetas-container">
+              <!-- Aquí se insertarán las etiquetas -->
+            </div>
+          </div>
+          <!-- CATEGORÍAS -->
+          <div class="card-section">
+            <h3>Categorías</h3>
+            <div id="categorias" class="categorias-container">
+              <!-- Aquí se insertarán las categorías -->
+            </div>
+          </div>
+          <!-- COLORES -->
+          <div class="card-section">
+            <h3>Colores Dominantes</h3>
+            <div id="colores" class="colores-container">
+              <!-- Aquí se insertarán los colores -->
+            </div>
+          </div>
         </div>
-        <!-- Loading -->
-        <div id="loading" class="loading" style="display: none">
-          <div class="spinner"></div>
-          <p>Procesando imagen con Azure AI...</p>
-        </div>
-        <!-- Error -->
-        <div id="error" class="error" style="display: none">
-          <p><span id="errorMensaje"></span></p>
-        </div>
-      </main>
-    </div>
-    <script src="../JS/imagen.js"></script>
-  </body>
+      </div>
+      <!-- Loading -->
+      <div id="loading" class="loading" style="display: none">
+        <div class="spinner"></div>
+        <p>Procesando imagen con Azure AI...</p>
+      </div>
+      <!-- Error -->
+      <div id="error" class="error" style="display: none">
+        <p><span id="errorMensaje"></span></p>
+      </div>
+    </main>
+  </div>
+  <script src="../JS/imagen.js"></script>
+</body>
+
 </html>
