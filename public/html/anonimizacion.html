@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Anonimización de Datos</title>
+    <link rel="stylesheet" href="../CSS/anonimizacion.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Volver al inicio</a>
+            <h1>Anonimización de Datos con Azure</h1>
+            <p>Oculta datos sensibles como nombres, DNI, teléfonos y correos electrónicos</p>
+        </header>
+
+        <main>
+            <!-- Formulario -->
+            <div class="form-section">
+                <label for="texto">Escribe tu texto:</label>
+                <textarea id="texto" rows="5"
+                    placeholder="Ejemplo: Hola, mi nombre es Juan Carlos Perez con DNI 45454646..."></textarea>
+                <button id="btnAnonimizar">Anonimizar Datos</button>
+            </div>
+            <!-- Resultados -->
+            <div id="resultado" class="resultado" style="display: none;">
+                <h2>Resultado de la Anonimización</h2>
+
+                <div class="texto-card anonimizado">
+                    <h3>Texto Anonimizado:</h3>
+                    <p id="textoAnonimizado" class="texto-content"></p>
+                </div>
+
+                <div class="entidades-container">
+                    <h3>Entidades Detectadas:</h3>
+                    <div id="entidadesList" class="entidades-list"></div>
+                </div>
+            </div>
+            <!-- Cargando -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Anonimizando datos con Azure AI...</p>
+            </div>
+            <!-- Error -->
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../JS/anonimizacion.js"></script>
+</body>
+
+</html>
