@@ -9,6 +9,7 @@ const extraccionRoutes = require('./Routes/extraccionRoutes')
 const imagenRoutes = require('./Routes/imagenRoutes')
 const resumenRoutes = require('./Routes/resumenRoutes')
 const anonimizacionRoutes = require('./Routes/anonimizacionRoutes')
+const preguntasRoutes = require('./Routes/preguntasRoutes')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -49,6 +50,7 @@ app.use('/api/extraccion', extraccionRoutes)
 app.use('/api/imagen', imagenRoutes)
 app.use('/api/resumen', resumenRoutes)
 app.use('/api/anonimizacion', anonimizacionRoutes)
+app.use('/api/preguntas', preguntasRoutes)
 
 app.listen(PORT, () => {
     console.log(`Servidor en http://localhost:${PORT}`)
