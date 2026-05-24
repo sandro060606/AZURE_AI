@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure - Responder Preguntas</title>
+    <link rel="stylesheet" href="../CSS/preguntas.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Volver al inicio</a>
+            <h1>Responder Preguntas con Azure</h1>
+            <p>Obtén respuestas a partir de un contexto proporcionado usando Azure Question Answering</p>
+        </header>
+
+        <main>
+            <!-- Formulario -->
+            <div class="form-section">
+                <label for="contexto">Contexto del documento:</label>
+                <textarea id="contexto" rows="8" placeholder="Ejemplo: El procesador es el componente que ejecuta todas las instrucciones del sistema operativo..."></textarea>
+                
+                <label for="pregunta">Escribe tu pregunta:</label>
+                <textarea id="pregunta" rows="3" placeholder="Ejemplo: ¿Qué permite hacer un procesador de ocho núcleos o más?"></textarea>
+                <button id="btnResponder">Obtener Respuesta</button>
+            </div>
+            <!-- Resultados -->
+            <div id="resultado" class="resultado" style="display: none;">
+                <h2>Respuesta Obtenida</h2>
+
+                <div class="respuesta-card">
+                    <h3>Respuesta:</h3>
+                    <p id="respuesta" class="respuesta-content"></p>
+                </div>
+
+                <div class="confianza-card">
+                    <h3>Nivel de Confianza:</h3>
+                    <p id="confianza" class="confianza-content"></p>
+                </div>
+            </div>
+            <!-- Cargando -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Buscando respuesta con Azure AI...</p>
+            </div>
+            <!-- Error -->
+            <div id="error" class="error" style="display: none;">
+                <p><span id="errorMensaje"></span></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../JS/preguntas.js"></script>
+</body>
+
+</html>

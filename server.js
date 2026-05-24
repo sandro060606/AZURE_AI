@@ -42,6 +42,9 @@ app.get('/resumen', (req, res) => {
 app.get('/anonimizacion', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/anonimizacion.html'))
 })
+app.get('/preguntas', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html/preguntas.html'))
+})
 
 // Ruta API
 app.use('/api/sentimiento', sentimientoRoutes)
