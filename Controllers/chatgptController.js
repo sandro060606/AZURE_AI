@@ -10,10 +10,10 @@ const enviarPregunta = async (req, res) => {
     }
 
     // Si mantenerHistorial es false, no enviamos el historial
-    const historialAUsar = mantenerHistorial ? (historial || []) : [];
+    const historialUsar = mantenerHistorial ? (historial || []) : [];
 
     // Resultado
-    const resultado = await chatgpt.enviarPregunta(pregunta, historialAUsar);
+    const resultado = await chatgpt.enviarPregunta(pregunta, historialUsar);
     res.json({ success: true, data: resultado });
   } catch (error) {
     res.status(500).json({ error: error.message });

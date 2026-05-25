@@ -6,6 +6,8 @@ exports.enviarPregunta = async (pregunta, historial = []) => {
 
     const url = `${AZURE_ENDPOINT}/openai/deployments/${DEPLOYMENT_NAME}/chat/completions?api-version=${API_VERSION}`;
 
+    pregunta += ", Dame una respuesta corta";
+
     const body = {
       messages: [
         { role: "system", content: "Eres un asistente útil" },
