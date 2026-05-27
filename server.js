@@ -11,6 +11,7 @@ const resumenRoutes = require('./Routes/resumenRoutes')
 const anonimizacionRoutes = require('./Routes/anonimizacionRoutes')
 const preguntasRoutes = require('./Routes/preguntasRoutes')
 const chatgptRoutes = require('./Routes/chatgptRoutes')
+const pdfRoutes = require('./Routes/pdfRoutes')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -56,6 +57,7 @@ app.use('/api/resumen', resumenRoutes)
 app.use('/api/anonimizacion', anonimizacionRoutes)
 app.use('/api/preguntas', preguntasRoutes)
 app.use('/api/chatgpt', chatgptRoutes)
+app.use('/api/pdf', pdfRoutes)
 
 app.listen(PORT, () => {
     console.log(`Servidor en http://localhost:${PORT}`)
