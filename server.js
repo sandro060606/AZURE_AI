@@ -48,6 +48,10 @@ app.get('/preguntas', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html/preguntas.html'))
 })
 
+app.get('/pdf', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'html/pdf.html'))
+})
+
 // Ruta API
 app.use('/api/sentimiento', sentimientoRoutes)
 app.use('/api/ocr', ocrRoutes)
