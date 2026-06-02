@@ -1,147 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Azure - Análisis de PDF</title>
-    <link rel="stylesheet" href="../css/pdf.css">
-</head>
+    <link rel="stylesheet" href="../css/pdf.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <header>
-            <a href="/" class="back-link">← Volver al inicio</a>
-            <h1>Análisis de PDF con Azure</h1>
-            <p>Extrae información de facturas y documentos PDF usando Azure Form Recognizer</p>
-        </header>
+      <header>
+        <a href="/" class="back-link">← Volver al inicio</a>
+        <h1>Análisis de PDF con Azure</h1>
+        <p>
+          Extrae información de facturas y documentos PDF usando Azure Form
+          Recognizer
+        </p>
+      </header>
 
-        <main>
-            <!-- Formulario -->
-            <div class="form-section">
-                <div class="input-type-selector">
-                    <label class="radio-option">
-                        <input type="radio" name="inputType" value="file" checked>
-                        <span>Archivo Local</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="inputType" value="url">
-                        <span>URL</span>
-                    </label>
-                </div>
+      <main>
+        <!-- Formulario -->
+        <div class="form-section">
+          <div class="input-type-selector">
+            <label class="radio-option">
+              <input type="radio" name="inputType" value="file" checked />
+              <span>Archivo Local</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="inputType" value="url" />
+              <span>URL</span>
+            </label>
+          </div>
 
-                <!-- Input de Archivo Local -->
-                <div id="fileInputSection" class="input-section">
-                    <label for="pdfFile">Selecciona un archivo PDF:</label>
-                    <input type="file" id="pdfFile" accept=".pdf">
-                    <div id="fileInfo" class="file-info" style="display: none;">
-                        <span id="fileName"></span>
-                    </div>
-                </div>
+          <!-- Input de Archivo Local -->
+          <div id="fileInputSection" class="input-section">
+            <label for="pdfFile">Selecciona un archivo PDF:</label>
+            <input type="file" id="pdfFile" accept=".pdf" />
+          </div>
 
-                <!-- Input de URL -->
-                <div id="urlInputSection" class="input-section" style="display: none;">
-                    <label for="pdfUrl">URL del PDF:</label>
-                    <input type="text" id="pdfUrl" placeholder="https://ejemplo.com/archivo.pdf">
-                </div>
+          <!-- Input de URL -->
+          <div id="urlInputSection" class="input-section" style="display: none">
+            <label for="pdfUrl">URL del PDF:</label>
+            <input
+              type="text"
+              id="pdfUrl"
+              value="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
+            />
+          </div>
 
-                <button id="btnAnalizar" class="btn-main">Analizar PDF</button>
+          <button id="btnAnalizar" class="btn-main">Analizar PDF</button>
+        </div>
+
+        <!-- Resultados -->
+        <div id="resultado" class="resultado" style="display: none">
+          <h2>Resultado del Análisis</h2>
+
+          <div class="pdf-info">
+            <h3>Información del Documento:</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <span>ID de Factura:</span>
+                <span id="idFactura" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Fecha de Factura:</span>
+                <span id="fechaFactura" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Fecha de Vencimiento:</span>
+                <span id="fechaVencimiento" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Cliente:</span>
+                <span id="clienteNombre" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>ID del Cliente:</span>
+                <span id="clienteId" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Vendedor:</span>
+                <span id="vendedorNombre" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Subtotal:</span>
+                <span id="subtotal" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Impuesto:</span>
+                <span id="impuestoTotal" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Total:</span>
+                <span id="totalFactura" class="valor"></span>
+              </div>
+              <div class="info-item">
+                <span>Total a Pagar:</span>
+                <span id="totalPagar" class="valor"></span>
+              </div>
             </div>
+          </div>
 
-            <!-- Resultados -->
-            <div id="resultado" class="resultado" style="display: none;">
-                <h2>Resultado del Análisis</h2>
-
-                <div class="pdf-info">
-                    <h3>Información del Documento:</h3>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span>ID de Factura:</span>
-                            <span id="invoiceId" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Fecha de Factura:</span>
-                            <span id="invoiceDate" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Fecha de Vencimiento:</span>
-                            <span id="dueDate" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Cliente:</span>
-                            <span id="customerName" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>ID del Cliente:</span>
-                            <span id="customerId" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Vendedor:</span>
-                            <span id="vendorName" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Subtotal:</span>
-                            <span id="subTotal" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Impuesto:</span>
-                            <span id="totalTax" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Total:</span>
-                            <span id="invoiceTotal" class="valor"></span>
-                        </div>
-                        <div class="info-item">
-                            <span>Total a Pagar:</span>
-                            <span id="amountDue" class="valor"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="items-section">
-                    <h3>Items:</h3>
-                    <div id="itemsContainer" class="items-container">
-                        <!-- Aquí se insertarán los items -->
-                    </div>
-                </div>
-
-                <div class="addresses-section">
-                    <h3>Direcciones:</h3>
-                    <div class="addresses-grid">
-                        <div class="address-item">
-                            <h4>Dirección del Cliente:</h4>
-                            <p id="customerAddress"></p>
-                        </div>
-                        <div class="address-item">
-                            <h4>Dirección de Facturación:</h4>
-                            <p id="billingAddress"></p>
-                        </div>
-                        <div class="address-item">
-                            <h4>Dirección de Envío:</h4>
-                            <p id="shippingAddress"></p>
-                        </div>
-                        <div class="address-item">
-                            <h4>Dirección de Servicio:</h4>
-                            <p id="serviceAddress"></p>
-                        </div>
-                    </div>
-                </div>
+          <div class="items-section">
+            <h3>Items:</h3>
+            <div id="contenedorItems" class="items-container">
+              <!-- Aquí se insertarán los items -->
             </div>
+          </div>
 
-            <!-- Cargando -->
-            <div id="loading" class="loading" style="display: none;">
-                <div class="spinner"></div>
-                <p>Analizando PDF con Azure AI...</p>
+          <div class="addresses-section">
+            <h3>Direcciones:</h3>
+            <div class="addresses-grid">
+              <div class="address-item">
+                <h4>Dirección del Cliente:</h4>
+                <p id="direccionCliente"></p>
+              </div>
+              <div class="address-item">
+                <h4>Dirección de Facturación:</h4>
+                <p id="direccionFacturacion"></p>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <!-- Error -->
-            <div id="error" class="error" style="display: none;">
-                <p><span id="errorMensaje"></span></p>
-            </div>
-        </main>
+        <!-- Cargando -->
+        <div id="loading" class="loading" style="display: none">
+          <div class="spinner"></div>
+          <p>Analizando PDF con Azure AI...</p>
+        </div>
+
+        <!-- Error -->
+        <div id="error" class="error" style="display: none">
+          <p><span id="errorMensaje"></span></p>
+        </div>
+      </main>
     </div>
 
     <script src="../js/pdf.js"></script>
-</body>
-
+  </body>
 </html>

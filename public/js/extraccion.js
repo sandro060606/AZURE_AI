@@ -66,7 +66,7 @@ function mostrarError(mensaje) {
 function ocultarTodo() {
     resultado.style.display = 'none';
     error.style.display = 'none';
-    if (loading) loading.style.display = 'none';
+    loading.style.display = 'none';
 }
 
 // Función para renderizar los resultados con filtro en el frontend

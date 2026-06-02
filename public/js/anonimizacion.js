@@ -41,7 +41,7 @@ btnAnonimizar.addEventListener('click', async () => {
 })
 
 function mostrarResultado(data) {
-    document.querySelector('#textoAnonimizado').textContent = data.textoAnonimizado
+    document.getElementById('textoAnonimizado').textContent = data.textoAnonimizado
     const entidadesList = document.getElementById('entidadesList')
     entidadesList.innerHTML = ''
 
@@ -70,5 +70,5 @@ function mostrarError(mensaje) {
 function ocultarTodo() {
     resultado.style.display = 'none'
     error.style.display = 'none'
-    if (loading) loading.style.display = 'none'
+    loading.style.display = 'none'
 }
